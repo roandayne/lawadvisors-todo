@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   namespace :api do
-    resources :todos do
+    resources :tasks do
       member do
         patch 'move'
       end

@@ -10,19 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_31_053910) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_31_065732) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "todos", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "status", default: "incomplete", null: false
-    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.index ["position"], name: "index_todos_on_position"
+    t.integer "next_task_id"
+    t.integer "prev_task_id"
+    t.index ["next_task_id"], name: "index_tasks_on_next_task_id"
+    t.index ["prev_task_id"], name: "index_tasks_on_prev_task_id"
   end
 
+  add_foreign_key "tasks", "tasks", column: "next_task_id", on_delete: :cascade
+  add_foreign_key "tasks", "tasks", column: "prev_task_id", on_delete: :cascade
 end
