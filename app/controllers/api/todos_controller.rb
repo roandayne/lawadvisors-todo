@@ -36,7 +36,11 @@ module Api
 
     # DELETE /todos/:id
     def destroy
-      @todo.destroy
+      if @todo.soft_delete
+        render json: { message: 'Todo deleted successfully' }
+      else
+        render json: { error: 'Failed to delete todo' }, status: :unprocessable_entity
+      end
     end
 
     # PATCH /todos/:id/move

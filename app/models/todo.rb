@@ -10,5 +10,10 @@ class Todo < ApplicationRecord
   validates :position, numericality: { only_integer: true }
 
   # Default scope
-  default_scope { order(position: :asc) }
+  default_scope { where(deleted_at: nil).order(position: :asc) }
+
+   # Soft delete
+  def soft_delete
+    update(deleted_at: Time.current)
+  end
 end
