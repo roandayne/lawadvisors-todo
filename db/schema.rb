@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_31_041132) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_31_041842) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "todos", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.boolean "completed"
+    t.string "status", default: "incomplete", null: false
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
