@@ -1,8 +1,4 @@
-Here’s a simple **README** for your task management API with position editing restrictions:
-
----
-
-# **Task Management API**
+# **To Do API**
 
 ## **Overview**
 This API allows users to manage tasks, including creating, updating, retrieving, and deleting tasks. However, **editing the task position (`sort_order`) is not allowed**.
