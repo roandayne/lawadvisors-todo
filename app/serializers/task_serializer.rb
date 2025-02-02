@@ -1,3 +1,3 @@
-class TodoSerializer < ActiveModel::Serializer
+class TaskSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :status, :position
 end

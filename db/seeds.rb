@@ -8,4 +8,4 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-load 'db/seeds/todo_seeder.rb'
+load 'db/seeds/task_seeder.rb'
