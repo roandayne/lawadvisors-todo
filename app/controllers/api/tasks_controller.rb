@@ -28,6 +28,11 @@ module Api
 
     # PATCH/PUT /tasks/:id
     def update
+      if params.key?(:position)
+        render json: { error: "Editing position is not allowed." }, status: :forbidden
+        return
+      end
+
       if @task.update(task_params)
         render json: @task
       else
@@ -75,7 +80,7 @@ module Api
     end
 
     def task_params
-      params.require(:task).permit(:title, :description, :status, :position)
+      params.require(:task).permit(:title, :description, :status)
     end
   end
 end
