@@ -1,7 +1,7 @@
 # **To Do API**
 
 ## **Overview**
-This API allows users to manage tasks, including creating, updating, retrieving, and deleting tasks. However, **editing the task position (`sort_order`) is not allowed**.
+This API allows users to manage tasks, including creating, updating, retrieving, moving and deleting tasks.
 
 ---
 
