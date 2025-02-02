@@ -47,7 +47,7 @@ module Api
     # PATCH /tasks/:id/move
     def move
       prev_task_id = params[:prev_task_id]
-      prev_task = Task.find(prev_task_id)
+      prev_task = Task.find(prev_task_id) if prev_task_id
       prev_task_position = prev_task ? prev_task.position : 0
 
       next_task_id = params[:next_task_id]
